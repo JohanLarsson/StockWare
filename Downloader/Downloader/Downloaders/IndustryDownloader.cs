@@ -16,7 +16,7 @@ namespace Downloader.Downloaders
             var webClient = new WebClient();
             string url = _queryBuilder.GetUrl(new QueryParameter("id", id));
             var downloadString = await webClient.DownloadStringTaskAsync(url);
-           return downloadString.Deserialize<RootObject<IndustryResults>>().Query.Results.Industry;
+            return downloadString.Deserialize<RootObject<IndustryResults>>().Query.Results.Industry;
         }
     }
 }

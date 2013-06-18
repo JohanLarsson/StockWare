@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Downloaders\HistoricalDataDownloader.cs" />
+    <Compile Include="Dtos\QuotesResults.cs" />
+    <Compile Include="Dtos\Cache.cs" />
+    <Compile Include="Dtos\Diagnostics.cs" />
     <Compile Include="Dtos\Industry.cs" />
     <Compile Include="Downloaders\IndustryDownloader.cs" />
     <Compile Include="Dtos\Company.cs" />
@@ -50,9 +53,12 @@
     <Compile Include="Downloaders\QuoteDownloader.cs" />
     <Compile Include="Dtos\IndustryResults.cs" />
     <Compile Include="Dtos\HistoricalDataResults.cs" />
+    <Compile Include="Dtos\Javascript.cs" />
     <Compile Include="Dtos\Option.cs" />
     <Compile Include="Dtos\OptionsChain.cs" />
     <Compile Include="Dtos\OptionsChainResults.cs" />
+    <Compile Include="Dtos\Query2.cs" />
+    <Compile Include="Dtos\Url.cs" />
     <Compile Include="Helpers\ReturnType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dtos\Query.cs" />

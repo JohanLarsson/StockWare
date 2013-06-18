@@ -25,7 +25,7 @@ namespace Downloader.Helpers
             //sb.Append(parameter.Name);
             //sb.Append("=");
             //sb.Append(parameter.Value);
-            string query = string.Format(@"select * from {0} where {1}", Table, BuildParameterString(parameter));
+            string query = string.Format(@"select * from {0} where {1}", Table, parameter.ParameterString);
             if (asEscapedDataString)
                 return Uri.EscapeDataString(query);
             return query;
@@ -33,13 +33,8 @@ namespace Downloader.Helpers
 
         public string GetQuery(QueryParameter[] parameters, bool asEscapedDataString)
         {
-            var parameterString = string.Join(" and ", parameters.Select(BuildParameterString));
+            var parameterString = string.Join(" and ", parameters.Select(p=>p.ParameterString));
             return BuildQuery(asEscapedDataString, parameterString);
-        }
-
-        private string BuildParameterString(QueryParameter parameter)
-        {
-            return string.Format("{0}='{1}'", parameter.Name, parameter.Value);
         }
 
         private string BuildQuery( bool asEscapedDataString, string parameterString)
@@ -53,7 +48,7 @@ namespace Downloader.Helpers
         public string GetUrl(QueryParameter parameter, ReturnType returnType = ReturnType.Json)
         {
             string ret = returnType == ReturnType.Json ? _json : "";
-            var url = _baseAddress + GetQuery( parameter, true) + ret + _tableDescription + _callback;
+            var url = _baseAddress + GetQuery(parameter, true) + ret + _tableDescription + _callback;
             return url;
         }
 

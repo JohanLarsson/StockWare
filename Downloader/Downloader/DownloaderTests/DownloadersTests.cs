@@ -29,6 +29,14 @@ namespace DownloaderTests
             Quote download = await downloader.Download(symbol);
         }
 
+        static string[] Symbols = new[] { "yhoo", "aapl", "goog", "msft" };
+        [Test]
+        public async void QuotesDownloaderTest()
+        {
+            var downloader = new QuoteDownloader();
+            List<Quote> download = await downloader.Download(Symbols);
+        }
+
         [TestCase("yhoo")]
         public async void GetOptionsTest(string symbol)
         {
