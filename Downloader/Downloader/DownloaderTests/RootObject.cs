@@ -1,7 +1,7 @@
 ﻿namespace DownloaderTests
 {
-    public class RootObject
+    public class RootObject<TResult>
     {
-        public Query Query { get; set; }
+        public Query<TResult> Query { get; set; }
     }
 }

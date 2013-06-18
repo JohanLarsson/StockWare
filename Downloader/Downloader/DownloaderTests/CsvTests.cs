@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 namespace DownloaderTests
 {
-    public class Class1
+    public class CsvTests
     {
         /// <summary>
         /// http://www.gummy-stuff.org/Yahoo-data.htm
@@ -20,9 +20,5 @@ namespace DownloaderTests
             var webClient = new WebClient();
             var downloadString = webClient.DownloadString(@"http://finance.yahoo.com/d/quotes.csv?s=XOM+BBDb.TO+JNJ+MSFT&f=snd1l1yr");
         }
-
-
-
-
     }
 }

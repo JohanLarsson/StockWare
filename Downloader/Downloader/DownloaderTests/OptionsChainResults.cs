@@ -3,8 +3,8 @@
 namespace DownloaderTests
 {
     [JsonObject(Id = "Result")]
-    public class QuoteResults
+    public class OptionsChainResults
     {
-        public Quote Quote { get; set; }
+        public OptionsChain optionsChain { get; set; }
     }
 }
