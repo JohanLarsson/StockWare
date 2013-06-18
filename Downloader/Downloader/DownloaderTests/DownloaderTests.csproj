@@ -49,19 +49,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CsvTests.cs" />
+    <Compile Include="QueryBuilderTests.cs" />
     <Compile Include="YqlTests.cs" />
-    <Compile Include="Option.cs" />
-    <Compile Include="OptionsChain.cs" />
-    <Compile Include="OptionsChainResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Query.cs" />
-    <Compile Include="Quote.cs" />
-    <Compile Include="Results.cs" />
-    <Compile Include="RootObject.cs" />
-    <Compile Include="SerializerExt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Downloader.csproj">
+      <Project>{1E714431-248B-4B5E-A9F7-690CE019706E}</Project>
+      <Name>Downloader</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

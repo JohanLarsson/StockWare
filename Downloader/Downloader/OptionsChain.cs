@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DownloaderTests
+namespace Downloader
 {
     public class OptionsChain
     {

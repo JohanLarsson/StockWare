@@ -1,4 +1,4 @@
-﻿namespace DownloaderTests
+﻿namespace Downloader
 {
     public class RootObject<TResult>
     {
