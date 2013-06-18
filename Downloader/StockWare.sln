@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Downloader", "Downloader\Downloader.csproj", "{1E714431-248B-4B5E-A9F7-690CE019706E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownloaderTests", "DownloaderTests\DownloaderTests.csproj", "{FF2B8C76-11E4-4EB8-8980-4248A53483D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownloaderTests", "Downloader\DownloaderTests\DownloaderTests.csproj", "{FF2B8C76-11E4-4EB8-8980-4248A53483D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
