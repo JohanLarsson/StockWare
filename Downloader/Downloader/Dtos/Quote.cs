@@ -1,4 +1,4 @@
-﻿namespace Downloader
+﻿namespace Downloader.Dtos
 {
     public class Quote
     {

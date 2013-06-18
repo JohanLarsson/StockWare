@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Downloader;
+using Downloader.Helpers;
 using NUnit.Framework;
 
 namespace DownloaderTests
@@ -14,15 +15,14 @@ namespace DownloaderTests
         public void QueryOneParameterTest()
         {
             var parameter = new QueryParameter("symbol", "yhoo");
-            string yahooFinanceQuotes = @"yahoo.finance.quotes";
-            QueryBuilder builder = new QueryBuilder();
+            QueryBuilder builder = new QueryBuilder(@"yahoo.finance.quotes");
 
-            string query = builder.GetQuery(yahooFinanceQuotes, parameter, false);
+            string query = builder.GetQuery(parameter, false);
 
             var expected = @"select * from yahoo.finance.quotes where symbol='yhoo'";
-            Assert.AreEqual(expected,query);
+            Assert.AreEqual(expected, query);
 
-            string queryEscaped = builder.GetQuery(yahooFinanceQuotes, parameter, true);
+            string queryEscaped = builder.GetQuery(parameter, true);
             expected = Uri.EscapeDataString(expected);
             Assert.AreEqual(expected, queryEscaped);
         }
@@ -32,15 +32,14 @@ namespace DownloaderTests
         {
             var parameter1 = new QueryParameter("symbol", "yhoo");
             var parameter2 = new QueryParameter("expiration", "2010-06");
-            string yahooFinanceQuotes = @"yahoo.finance.quotes";
-            QueryBuilder builder = new QueryBuilder();
+            QueryBuilder builder = new QueryBuilder(@"yahoo.finance.quotes");
 
-            string query = builder.GetQuery(yahooFinanceQuotes,new[]{ parameter1,parameter2}, false);
+            string query = builder.GetQuery(new[] { parameter1, parameter2 }, false);
 
             var expected = @"select * from yahoo.finance.quotes where symbol='yhoo' and expiration='2010-06'";
             Assert.AreEqual(expected, query);
 
-            string queryEscaped = builder.GetQuery(yahooFinanceQuotes, new[] { parameter1, parameter2 }, true);
+            string queryEscaped = builder.GetQuery(new[] { parameter1, parameter2 }, true);
             expected = Uri.EscapeDataString(expected);
             Assert.AreEqual(expected, queryEscaped);
         }
@@ -49,8 +48,7 @@ namespace DownloaderTests
         public void UrlTest()
         {
             var parameter = new QueryParameter("symbol", "yhoo");
-            string yahooFinanceQuotes = @"yahoo.finance.quotes";
-            string url = new QueryBuilder().GetUrl(yahooFinanceQuotes, parameter);
+            string url = new QueryBuilder(@"yahoo.finance.quotes").GetUrl(parameter);
             Assert.AreEqual(@"http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%3D'yhoo' &format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=", url);
         }
     }

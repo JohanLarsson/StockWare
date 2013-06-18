@@ -1,4 +1,4 @@
-﻿namespace Downloader
+﻿namespace Downloader.Helpers
 {
     public class QueryParameter
     {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Downloader
+namespace Downloader.Dtos
 {
     [JsonObject(Id = "Result")]
     public class QuoteResults

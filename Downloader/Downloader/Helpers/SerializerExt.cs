@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 
-namespace Downloader
+namespace Downloader.Helpers
 {
     public static class SerializerExt
     {
