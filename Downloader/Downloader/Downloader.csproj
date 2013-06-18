@@ -45,7 +45,7 @@
     <Compile Include="Downloaders\HistoricalDataDownloader.cs" />
     <Compile Include="Dtos\Industry.cs" />
     <Compile Include="Downloaders\IndustryDownloader.cs" />
-    <Compile Include="Downloaders\Company.cs" />
+    <Compile Include="Dtos\Company.cs" />
     <Compile Include="Downloaders\OptionsDownloader.cs" />
     <Compile Include="Downloaders\QuoteDownloader.cs" />
     <Compile Include="Dtos\IndustryResults.cs" />
