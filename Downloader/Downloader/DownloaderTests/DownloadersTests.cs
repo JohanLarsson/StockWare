@@ -15,6 +15,13 @@ namespace DownloaderTests
     [Explicit]
     public class DownloadersTests
     {
+        [TestCase("112")]
+        public async void IndustryDownloaderDownloaderTest(string id)
+        {
+            var downloader = new IndustryDownloader();
+            Industry download = await downloader.Download(id);
+        }
+
         [TestCase("yhoo")]
         public async void QuoteDownloaderTest(string symbol)
         {

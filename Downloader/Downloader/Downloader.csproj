@@ -43,8 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Downloaders\HistoricalDataDownloader.cs" />
+    <Compile Include="Dtos\Industry.cs" />
+    <Compile Include="Downloaders\IndustryDownloader.cs" />
+    <Compile Include="Downloaders\Company.cs" />
     <Compile Include="Downloaders\OptionsDownloader.cs" />
     <Compile Include="Downloaders\QuoteDownloader.cs" />
+    <Compile Include="Dtos\IndustryResults.cs" />
     <Compile Include="Dtos\HistoricalDataResults.cs" />
     <Compile Include="Dtos\Option.cs" />
     <Compile Include="Dtos\OptionsChain.cs" />
@@ -56,7 +60,6 @@
     <Compile Include="Helpers\QueryParameter.cs" />
     <Compile Include="Dtos\Quote.cs" />
     <Compile Include="Dtos\EodPoint.cs" />
-    <Compile Include="Dtos\QuotesResults.cs" />
     <Compile Include="Dtos\QuoteResults.cs" />
     <Compile Include="Dtos\RootObject.cs" />
     <Compile Include="Helpers\SerializerExt.cs" />
