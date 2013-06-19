@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace DownloaderTests
+namespace DownloaderTests.Prototypes
 {
-    class ProxyTests
+    [Explicit]
+    class ProxyPrototypes
     {
         [Test]
         public void ProxyHttpTest()
@@ -37,6 +34,19 @@ namespace DownloaderTests
             client.Proxy = proxy;
             var webException = Assert.Throws<WebException>(() => { var withProxy = client.DownloadString(httpsUrl); });
             Console.WriteLine(webException.Message); // The remote server returned an error: (403) Forbidden.
+        }
+
+        [Test]
+        public void HomeHttpsTest()
+        {
+            var client = new WebClient();
+            string httpsUrl = @"https://api.test.nordnet.se/next/login";
+            string withoutProxy = client.DownloadString(httpsUrl); 
+
+            IWebProxy proxy = WebRequest.DefaultWebProxy;
+            proxy.Credentials = CredentialCache.DefaultCredentials;
+            client.Proxy = proxy;
+            var withProxy = client.DownloadString(httpsUrl); 
         }
 
         [Test]
