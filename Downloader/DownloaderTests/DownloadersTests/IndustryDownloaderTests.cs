@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
-using Downloader.Downloaders;
 using Downloader.Dtos;
+using Downloader.Yahoo.Finance.Downloaders;
+using Downloader.Yahoo.Finance.Dtos;
 using NUnit.Framework;
 
 namespace DownloaderTests.DownloadersTests
