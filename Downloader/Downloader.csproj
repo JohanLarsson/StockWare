@@ -45,6 +45,7 @@
     <Compile Include="Downloaders\DownloaderBase.cs" />
     <Compile Include="Downloaders\HistoricalDataDownloader.cs" />
     <Compile Include="Downloaders\KeyStatsDownloader.cs" />
+    <Compile Include="Downloaders\OptionContractsDownloader.cs" />
     <Compile Include="Downloaders\SectorsDownloader.cs" />
     <Compile Include="Dtos\AvgVol.cs" />
     <Compile Include="Dtos\BookValuePerShare.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="Dtos\NetIncomeAvltoCommon.cs" />
     <Compile Include="Dtos\OperatingCashFlow.cs" />
     <Compile Include="Dtos\OperatingMargin.cs" />
+    <Compile Include="Dtos\OptionContracts.cs" />
+    <Compile Include="Dtos\OptionContractsResults.cs" />
     <Compile Include="Dtos\P52WeekHigh.cs" />
     <Compile Include="Dtos\P52WeekLow.cs" />
     <Compile Include="Dtos\PEGRatio.cs" />

@@ -47,6 +47,7 @@
     <Compile Include="DownloadersTests\HistoricalDataDownloaderTests.cs" />
     <Compile Include="DownloadersTests\IndustryDownloaderTests.cs" />
     <Compile Include="DownloadersTests\KeyStatsDownloaderTests.cs" />
+    <Compile Include="DownloadersTests\OptionContractsDownloaderTests.cs" />
     <Compile Include="DownloadersTests\OptionsDownloaderTests.cs" />
     <Compile Include="DownloadersTests\SectorsDownloaderTests.cs" />
     <Compile Include="DownloadersTests\StockDownloaderTests.cs" />

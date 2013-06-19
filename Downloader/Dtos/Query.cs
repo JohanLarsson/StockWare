@@ -10,4 +10,5 @@ namespace Downloader.Dtos
         public Diagnostics Diagnostics { get; set; }
         public TResult Results { get; set; }
     }
+
 }
