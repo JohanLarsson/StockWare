@@ -46,12 +46,14 @@
     <Compile Include="CsvTests.cs" />
     <Compile Include="DownloadersTests\HistoricalDataDownloaderTests.cs" />
     <Compile Include="DownloadersTests\IndustryDownloaderTests.cs" />
+    <Compile Include="DownloadersTests\IsinStockDownloaderTests.cs" />
     <Compile Include="DownloadersTests\KeyStatsDownloaderTests.cs" />
     <Compile Include="DownloadersTests\OptionContractsDownloaderTests.cs" />
     <Compile Include="DownloadersTests\OptionsDownloaderTests.cs" />
     <Compile Include="DownloadersTests\SectorsDownloaderTests.cs" />
     <Compile Include="DownloadersTests\StockDownloaderTests.cs" />
     <Compile Include="GlobalizationTests.cs" />
+    <Compile Include="ProxyTests.cs" />
     <Compile Include="QueryBuilderTests.cs" />
     <Compile Include="DownloadersTests\QuoteDownloaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
