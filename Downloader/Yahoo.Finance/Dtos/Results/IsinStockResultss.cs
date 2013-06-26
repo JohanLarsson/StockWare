@@ -6,6 +6,6 @@ namespace Downloader.Yahoo.Finance.Dtos.Results
     public class IsinStockResultss
     {
         [JsonProperty(PropertyName = "stock")]
-        public List<IsinStock> Stocks { get; set; }
+        public List<ISINMatch> Stocks { get; set; }
     }
 }

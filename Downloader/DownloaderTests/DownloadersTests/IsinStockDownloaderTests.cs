@@ -14,8 +14,8 @@ namespace DownloaderTests.DownloadersTests
         public async void DownloadOneTest(string symbol)
         {
             var downloader = new IsinStockDownloader();
-            IsinStock download = await downloader.Download(symbol);
-            Assert.IsTrue(symbol.Equals(download.Isin, StringComparison.OrdinalIgnoreCase));
+            ISINMatch download = await downloader.Download(symbol);
+            Assert.IsTrue(symbol.Equals(download.ISIN, StringComparison.OrdinalIgnoreCase));
             Assert.IsFalse(string.IsNullOrEmpty(download.Symbol));
         }
 
@@ -24,7 +24,7 @@ namespace DownloaderTests.DownloadersTests
         public async void DownloadManyTest()
         {
             var downloader = new IsinStockDownloader();
-            List<IsinStock> download = await downloader.Download(Symbols);
+            List<ISINMatch> download = await downloader.Download(Symbols);
             Assert.AreEqual(Symbols.Length, download.Count);
         }
     }

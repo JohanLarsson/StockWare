@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CsvTests.cs" />
-    <Compile Include="DownloadersTests\YahooDownloaderTests.cs" />
+    <Compile Include="Prototypes\XamlGenerators.cs" />
     <Compile Include="DownloadersTests\HistoricalDataDownloaderTests.cs" />
     <Compile Include="DownloadersTests\IndustryDownloaderTests.cs" />
     <Compile Include="DownloadersTests\IsinStockDownloaderTests.cs" />

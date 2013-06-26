@@ -13,13 +13,12 @@ namespace DownloaderTests.DownloadersTests
     [Explicit]
     public class HistoricalDataDownloaderTests
     {
-        [TestCase("yhoo", @"2009-09-11", @"2010-03-10")]
-        [TestCase("yhoo", null, null)]
-        public async void GetHistoricalDataTest(string symbol, string startDate, string endDate)
+        [TestCase("yhoo", @"2009-09-11", @"2010-03-10",124)]
+        public async void GetHistoricalDataTest(string symbol, string startDate, string endDate, int expected)
         {
             var downloader = new HistoricalDataDownloader();
             List<EodPoint> download = await downloader.Download(symbol, DateTime.Parse(startDate), DateTime.Parse(endDate));
-            //Assert.AreEqual(1, deserialize.Query.Count);
+            Assert.AreEqual(expected,download.Count);
         }
     }
 }

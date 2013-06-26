@@ -70,7 +70,7 @@
     <Compile Include="Yahoo.Finance\Dtos\OperatingCashFlow.cs" />
     <Compile Include="Yahoo.Finance\Dtos\OperatingMargin.cs" />
     <Compile Include="Yahoo.Finance\Dtos\OptionContracts.cs" />
-    <Compile Include="Yahoo.Finance\Dtos\IsinStock.cs" />
+    <Compile Include="Yahoo.Finance\Dtos\ISINMatch.cs" />
     <Compile Include="Yahoo.Finance\Dtos\Results\IsinStockResults.cs" />
     <Compile Include="Yahoo.Finance\Dtos\Results\IsinStockResultss.cs" />
     <Compile Include="Yahoo.Finance\Dtos\Results\OptionContractsResults.cs" />

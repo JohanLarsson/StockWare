@@ -1,8 +1,10 @@
+using Newtonsoft.Json;
+
 namespace Downloader.Yahoo.Finance.Dtos
 {
-    public class IsinStock
+    public class ISINMatch
     {
         public string Symbol { get; set; }
-        public string Isin { get; set; }
+        public string ISIN { get; set; }
     }
 }

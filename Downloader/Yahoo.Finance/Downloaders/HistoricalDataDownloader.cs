@@ -15,17 +15,13 @@ namespace Downloader.Yahoo.Finance.Downloaders
         {
         }
 
-        public async Task<List<EodPoint>> Download(string symbol, DateTime? startDate = null , DateTime? endDate = null)
+        public async Task<List<EodPoint>> Download(string symbol, DateTime startDate, DateTime endDate)
         {
-            if (startDate == null)
-                startDate = DateTime.MinValue;
-            if (endDate == null)
-                startDate = DateTime.MaxValue;
             string url = QueryBuilder.GetUrl(new[]
                 {
                     new QueryParameter("symbol", symbol), 
-                    new QueryParameter("startDate", startDate.Value.ToShortDateString()),
-                    new QueryParameter("endDate", endDate.Value.ToShortDateString())
+                    new QueryParameter("startDate", startDate.ToShortDateString()),
+                    new QueryParameter("endDate", endDate.ToShortDateString())
                 });
             var downloadString =await WebClient.DownloadStringTaskAsync(url);
 
