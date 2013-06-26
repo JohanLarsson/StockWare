@@ -14,7 +14,6 @@ namespace DownloaderTests.Prototypes
             foreach (var cultureInfo in cultureInfos)
             {
                 Console.WriteLine(cultureInfo.Name);
-
             }
         }
     }

@@ -14,6 +14,7 @@ namespace DownloaderTests.DownloadersTests
     public class HistoricalDataDownloaderTests
     {
         [TestCase("yhoo", @"2009-09-11", @"2010-03-10")]
+        [TestCase("yhoo", null, null)]
         public async void GetHistoricalDataTest(string symbol, string startDate, string endDate)
         {
             var downloader = new HistoricalDataDownloader();

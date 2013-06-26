@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Yahoo.Finance\Downloaders\OnvistaStockDownloader.cs" />
+    <Compile Include="Yahoo.Finance\Dtos\OnvistaStock.cs" />
+    <Compile Include="Yahoo.Finance\Dtos\Results\OnvistaStockResult.cs" />
+    <Compile Include="Yahoo.Finance\YahooDownloader.cs" />
     <Compile Include="Yahoo.Finance\Downloaders\DownloaderBase.cs" />
     <Compile Include="Yahoo.Finance\Downloaders\HistoricalDataDownloader.cs" />
     <Compile Include="Yahoo.Finance\Downloaders\IsinStockDownloader.cs" />

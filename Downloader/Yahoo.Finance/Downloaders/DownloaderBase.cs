@@ -10,17 +10,21 @@ namespace Downloader.Yahoo.Finance.Downloaders
         public DownloaderBase(string tableName)
         {
             QueryBuilder = new QueryBuilder(tableName);
-
-            IWebProxy defaultWebProxy = WebRequest.DefaultWebProxy;
-            defaultWebProxy.Credentials = CredentialCache.DefaultCredentials;
-            WebClient = new WebClient
-                {
-                    Proxy = defaultWebProxy
-                };
         }
 
         protected readonly QueryBuilder QueryBuilder;
-        protected WebClient WebClient;
+        protected WebClient WebClient
+        {
+            get
+            {
+                IWebProxy defaultWebProxy = WebRequest.DefaultWebProxy;
+                defaultWebProxy.Credentials = CredentialCache.DefaultCredentials;
+                return new WebClient
+                {
+                    Proxy = defaultWebProxy
+                };
+            }
+        }
 
         protected static RootObject<T> GetRootObject<T>(string json)
         {

@@ -1,14 +1,15 @@
-﻿namespace Downloader.Yahoo.Finance.Dtos
+﻿using System;
+
+namespace Downloader.Yahoo.Finance.Dtos
 {
     public class EodPoint
     {
-        public string date { get; set; }
-        public string Date { get; set; }
-        public string Open { get; set; }
-        public string High { get; set; }
-        public string Low { get; set; }
-        public string Close { get; set; }
-        public string Volume { get; set; }
-        public string Adj_Close { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Open { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public decimal Close { get; set; }
+        public int Volume { get; set; }
+        public decimal Adj_Close { get; set; }
     }
 }

@@ -10,11 +10,13 @@ namespace DownloaderTests.DownloadersTests
     public class IsinStockDownloaderTests
     {
         [TestCase("US9843321061")]
+        [TestCase("SE0000115420")]
         public async void DownloadOneTest(string symbol)
         {
             var downloader = new IsinStockDownloader();
             IsinStock download = await downloader.Download(symbol);
-            Assert.IsTrue(symbol.Equals(download.Symbol, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(symbol.Equals(download.Isin, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(string.IsNullOrEmpty(download.Symbol));
         }
 
         static string[] Symbols = new[] { "US9843321061", "US0378331005" };
