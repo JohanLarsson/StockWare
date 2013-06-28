@@ -11,28 +11,29 @@ namespace Downloader.Yahoo.Finance
 {
     public static class YahooDownloader
     {
-        public static async Task<List<EodPoint>>  HistorcalData(string symbol)
+        /// <summary>
+        /// Downloads five years
+        /// </summary>
+        /// <param name="symbol">Either symbol "YHOO" or ISIN "US9843321061"</param>
+        /// <returns></returns>
+        public static async Task<List<EodPoint>> HistorcalData(string symbol)
         {
+            symbol = await GetSymbol(symbol);
             Stock stock = await Stock(symbol);
-            return await new HistoricalDataDownloader().Download(symbol,stock.Start,stock.End);
+            return await new HistoricalDataDownloader().Download(symbol, stock.End - TimeSpan.FromDays(365 * 5), stock.End);
+        }
+
+        public static async Task<List<EodPoint>> HistorcalData(string symbol, DateTime startDate, DateTime endDate)
+        {
+            symbol = await GetSymbol(symbol);
+            return await new HistoricalDataDownloader().Download(symbol, startDate, endDate);
         }
 
         public static async Task<List<EodPoint>> HistorcalData(string symbol, TimeSpan timeSpan)
         {
+            symbol = await GetSymbol(symbol);
             Stock stock = await Stock(symbol);
             return await new HistoricalDataDownloader().Download(symbol, stock.End - timeSpan, stock.End);
-        }
-
-        public static async Task<List<EodPoint>> HistorcalDataByIsin(string isin)
-        {
-            ISINMatch isinMatch = await Isin(isin);
-            return await HistorcalData(isinMatch.Symbol);
-        }
-
-        public static async Task<List<EodPoint>> HistorcalDataByIsin(string isin, TimeSpan timeSpan)
-        {
-            ISINMatch isinMatch = await Isin(isin);
-            return await HistorcalData(isinMatch.ISIN, timeSpan);
         }
 
         public static async Task<Stock> Stock(string symbol)
@@ -52,46 +53,44 @@ namespace Downloader.Yahoo.Finance
 
         public static async Task<Quote> Quote(string symbol)
         {
+            symbol = await GetSymbol(symbol);
             return await new QuoteDownloader().Download(symbol);
-        }
-
-        public static async Task<Quote> QuoteByIsin(string isin)
-        {
-            ISINMatch isinMatch = await Isin(isin);
-            return await new QuoteDownloader().Download(isinMatch.Symbol);
         }
 
         public static async Task<List<Quote>> Quote(string[] symbols)
         {
+            symbols = await GetSymbols(symbols);
             return await new QuoteDownloader().Download(symbols);
         }
 
-        public static async Task<List<Quote>> QuoteByIsin(string[] isins)
+        public static async Task<OnvistaStock> OnVista(string symbol)
         {
-            List<ISINMatch> isinStock = await Isin(isins);
-            return await new QuoteDownloader().Download(isinStock.Select(i=>i.Symbol).ToArray());
+            symbol = await GetSymbol(symbol);
+            return await new OnvistaDownloader().Download(symbol);
+        }
+
+        public static async Task<OptionsChain> Options(string symbol)
+        {
+            symbol = await GetSymbol(symbol);
+            return await new OptionsDownloader().Download(symbol);
+        }
+
+        public static async Task<List<OptionsChain>> Options(string[] symbols)
+        {
+            symbols = await GetSymbols(symbols);
+            return await new OptionsDownloader().Download(symbols);
         }
 
         public static async Task<Stats> KeyStats(string symbol)
         {
+            symbol = await GetSymbol(symbol);
             return await new KeyStatsDownloader().Download(symbol);
-        }
-
-        public static async Task<Stats> KeyStatsByIsin(string isin)
-        {
-            ISINMatch isinMatch = await Isin(isin);
-            return await new KeyStatsDownloader().Download(isinMatch.Symbol);
         }
 
         public static async Task<List<Stats>> KeyStats(string[] symbols)
         {
+            symbols = await GetSymbols(symbols);
             return await new KeyStatsDownloader().Download(symbols);
-        }
-
-        public static async Task<List<Stats>> KeyStatsByIsin(string[] isins)
-        {
-            List<ISINMatch> isinStocks = await Isin(isins);
-            return await new KeyStatsDownloader().Download(isinStocks.Select(i=>i.Symbol).ToArray());
         }
 
         public static async Task<List<Sector>> Sectors()
@@ -102,6 +101,35 @@ namespace Downloader.Yahoo.Finance
         public static async Task<Industry> Industries(string id)
         {
             return await new IndustryDownloader().Download(id);
+        }
+
+        private static bool IsIsin(string symbol)
+        {
+            return symbol.Trim().Length == 12;
+        }
+
+        private static async Task<string> GetSymbol(string symbol)
+        {
+            if (IsIsin(symbol))
+            {
+                ISINMatch isinMatch = await Isin(symbol);
+                return isinMatch.Symbol;
+            }
+            return symbol;
+        }
+
+        private static async Task<string[]> GetSymbols(string[] symbols)
+        {
+            if (symbols.All(x => IsIsin(x)))
+            {
+                List<Task<string>> tasks = new List<Task<string>>();
+                foreach (var symbol in symbols)
+                {
+                    tasks.Add(GetSymbol(symbol));
+                }
+                return await Task.WhenAll(tasks);
+            }
+            return symbols;
         }
     }
 }

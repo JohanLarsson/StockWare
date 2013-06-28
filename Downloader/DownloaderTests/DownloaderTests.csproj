@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CsvTests.cs" />
+    <Compile Include="YahooDownloaderTests.cs" />
     <Compile Include="IsinTest.cs" />
     <Compile Include="Prototypes\JsonSandbox.cs" />
     <Compile Include="Prototypes\XamlGenerators.cs" />

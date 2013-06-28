@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Yahoo.Finance\Downloaders\OnvistaStockDownloader.cs" />
+    <Compile Include="Yahoo.Finance\Downloaders\OnvistaDownloader.cs" />
     <Compile Include="Yahoo.Finance\Dtos\OnvistaStock.cs" />
     <Compile Include="Yahoo.Finance\Dtos\Results\OnvistaStockResult.cs" />
     <Compile Include="Yahoo.Finance\YahooDownloader.cs" />

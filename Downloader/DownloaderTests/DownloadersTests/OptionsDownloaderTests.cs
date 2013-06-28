@@ -14,7 +14,7 @@ namespace DownloaderTests.DownloadersTests
     public class OptionsDownloaderTests
     {
         [TestCase("yhoo")]
-        public async void DownloadOneTest(string symbol)
+        public async Task DownloadOneTest(string symbol)
         {
             var downloader = new OptionsDownloader();
             OptionsChain download = await downloader.Download(symbol);
@@ -23,7 +23,7 @@ namespace DownloaderTests.DownloadersTests
 
         static string[] Symbols = new[] { "yhoo", "aapl", "goog", "msft" };
         [Test]
-        public async void DownloadManyTest()
+        public async Task DownloadManyTest()
         {
             var downloader = new OptionsDownloader();
             List<OptionsChain> download = await downloader.Download(Symbols);

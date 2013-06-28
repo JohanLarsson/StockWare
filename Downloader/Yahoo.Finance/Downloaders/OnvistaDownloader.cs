@@ -6,9 +6,9 @@ using Downloader.Yahoo.Finance.Dtos.Results;
 
 namespace Downloader.Yahoo.Finance.Downloaders
 {
-    public class OnvistaStockDownloader : DownloaderBase
+    public class OnvistaDownloader : DownloaderBase
     {
-        public OnvistaStockDownloader()
+        public OnvistaDownloader()
             : base(@"yahoo.finance.onvista")
         {
         }

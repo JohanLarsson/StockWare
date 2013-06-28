@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Downloader.Dtos;
 using Downloader.Yahoo.Finance.Downloaders;
 using NUnit.Framework;
@@ -9,7 +10,7 @@ namespace DownloaderTests.DownloadersTests
     public class SectorsDownloaderTests
     {
         [Test]
-        public async void DownloadOneTest()
+        public async Task DownloadOneTest()
         {
             var downloader = new SectorsDownloader();
             List<Sector> download = await downloader.Download();
