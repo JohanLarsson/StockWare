@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -44,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CsvTests.cs" />
+    <Compile Include="IsinTest.cs" />
+    <Compile Include="Prototypes\JsonSandbox.cs" />
     <Compile Include="Prototypes\XamlGenerators.cs" />
     <Compile Include="DownloadersTests\HistoricalDataDownloaderTests.cs" />
     <Compile Include="DownloadersTests\IndustryDownloaderTests.cs" />
