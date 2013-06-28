@@ -122,12 +122,14 @@ namespace Downloader.Yahoo.Finance
         {
             if (symbols.All(x => IsIsin(x)))
             {
-                List<Task<string>> tasks = new List<Task<string>>();
-                foreach (var symbol in symbols)
-                {
-                    tasks.Add(GetSymbol(symbol));
-                }
-                return await Task.WhenAll(tasks);
+                //List<Task<string>> tasks = new List<Task<string>>();
+                //foreach (var symbol in symbols)
+                //{
+                //    tasks.Add(GetSymbol(symbol));
+                //}
+                //return await Task.WhenAll(tasks);
+                List<ISINMatch> isinMatches = await Isin(symbols);
+                return isinMatches.Select(x => x.Symbol).ToArray();
             }
             return symbols;
         }

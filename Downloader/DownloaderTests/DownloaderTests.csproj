@@ -52,18 +52,9 @@
     <Compile Include="IsinTest.cs" />
     <Compile Include="Prototypes\JsonSandbox.cs" />
     <Compile Include="Prototypes\XamlGenerators.cs" />
-    <Compile Include="DownloadersTests\HistoricalDataDownloaderTests.cs" />
-    <Compile Include="DownloadersTests\IndustryDownloaderTests.cs" />
-    <Compile Include="DownloadersTests\IsinStockDownloaderTests.cs" />
-    <Compile Include="DownloadersTests\KeyStatsDownloaderTests.cs" />
-    <Compile Include="DownloadersTests\OptionContractsDownloaderTests.cs" />
-    <Compile Include="DownloadersTests\OptionsDownloaderTests.cs" />
-    <Compile Include="DownloadersTests\SectorsDownloaderTests.cs" />
-    <Compile Include="DownloadersTests\StockDownloaderTests.cs" />
     <Compile Include="Prototypes\GlobalizationPrototype.cs" />
     <Compile Include="Prototypes\ProxyPrototypes.cs" />
     <Compile Include="QueryBuilderTests.cs" />
-    <Compile Include="DownloadersTests\QuoteDownloaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
