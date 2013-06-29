@@ -22,6 +22,7 @@ namespace DownloaderTests
         /// <returns></returns>
         [TestCase("yhoo", @"2009-09-11", @"2010-03-10")]
         [TestCase("US9843321061", @"2009-09-11", @"2010-03-10")]
+        //[TestCase("SAND.ST", @"2009-09-11", @"2010-03-10")]
         public async Task HistorcalDataBetweenDatesTest(string symbol, string startDateString, string endDateString)
         {
             DateTime startDate = DateTime.Parse(startDateString);
@@ -39,6 +40,7 @@ namespace DownloaderTests
 
         [TestCase("yhoo", 365)]
         [TestCase("US9843321061", 365)]
+        //[TestCase("SAND.ST", 365)]
         public async Task HistorcalDataTimeSpanTest(string symbol, int days)
         {
             List<EodPoint> download = await YahooDownloader.HistorcalData(symbol, TimeSpan.FromDays(days));
@@ -54,11 +56,12 @@ namespace DownloaderTests
         }
 
         [TestCase("yhoo")]
-        [TestCase("US9843321061")]
+        //[TestCase("US9843321061")]
+        //[TestCase("SAND.ST")]
         public async Task HistorcalDataTest(string symbol)
         {
             List<EodPoint> download = await YahooDownloader.HistorcalData(symbol);
-            //DumpHistory(download);
+            DumpHistory(download);
 
         }
 

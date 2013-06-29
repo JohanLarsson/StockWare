@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Downloader.Yahoo.Finance.Dtos;
 using NUnit.Framework;
+using RestSharp;
 
 namespace DownloaderTests
 {

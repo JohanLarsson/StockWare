@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Downloader.Dtos;
 using Downloader.Yahoo.Finance.Downloaders;
@@ -105,7 +106,7 @@ namespace Downloader.Yahoo.Finance
 
         private static bool IsIsin(string symbol)
         {
-            return symbol.Trim().Length == 12;
+            return _IsinRegex.IsMatch(symbol.Trim());
         }
 
         private static async Task<string> GetSymbol(string symbol)
@@ -118,6 +119,7 @@ namespace Downloader.Yahoo.Finance
             return symbol;
         }
 
+        private static Regex _IsinRegex = new Regex(@"^\w{2}\d{10}$",RegexOptions.Compiled);
         private static async Task<string[]> GetSymbols(string[] symbols)
         {
             if (symbols.All(x => IsIsin(x)))
